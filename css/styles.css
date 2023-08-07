@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: relative;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #cbcbcb;
+    background-color: #565656;
+}
+
+input {
+    outline: none;
+    border: 2px solid black;
+    padding: 4px;
+}
+
+input[type=radio] {
+    margin: 0;
+    width: 14px;
+    height: 14px;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 4rem 0;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.add-book-btn {
+    height: 2rem;
+    padding: 8px;
+    background-color: black;
+    color: white;
+}
+
+/* book form */
+#book-form {
+    display: none;
+    flex-direction: column;
+    width: clamp(300px, 50%, 500px);
+    margin: auto;
+    gap: 0.8rem;
+    border: 2px solid black;
+    padding: 1.5rem;
+    z-index: 10;
+    margin-top: 100px;
+    background-color: #fff;
+    position: relative;
+    /* have a margin kick in on smaller widths */
+}
+
+.close-form {
+    width: 2rem;
+    display: flex;
+    align-items: center;
+    background-color: black;
+    color: white;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+}
+
+.author {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: row;
+}
+
+.true {
+    margin-right: 2rem;
+}
+
+.true, .false {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.book-submit-btn {
+    background-color: black;
+    color: white;
+    height: 2rem;
+}
+
+
+/* body overlay when form is open */
+.form-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}

@@ -3,7 +3,7 @@ const closeFormBtn = document.querySelector('.close-form')
 const bookForm = document.querySelector('#book-form')
 const overlay = document.querySelector('.overlay')
 
-
+// FORM CONTROLS
 openFormBtn.addEventListener('click', () => {
     if (bookForm.classList.value === 'open') {
         bookForm.style.cssText = 'display: none'
@@ -13,6 +13,7 @@ openFormBtn.addEventListener('click', () => {
         bookForm.classList.add('open')
         overlay.classList.add('form-bg')
         bookForm.style.cssText = 'display: flex'
+        document.body.classList.add('hide')
     }
 })
 
@@ -21,23 +22,9 @@ closeFormBtn.addEventListener('click', () => {
         bookForm.style.cssText = 'display: none'
         bookForm.classList.remove('open')
         overlay.classList.remove('form-bg')
+        document.body.removeAttribute('class')
     }
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

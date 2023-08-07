@@ -15,25 +15,101 @@
         <h1>Library</h1>
         <button type="button" class="add-book-btn">New book</button>
     </header>
+    <main>
+        <h2>Books</h1>
+        <hr>
+        <div class="book-collection">
+            <!-- Book -->
+            <div class="book">
+                <div class="book-options">
+                    <!-- read status -->
+                    <button type="button" class="book-option not-read">
+                        <span class="material-symbols-outlined">radio_button_unchecked</span>
+                        <!-- <span class="material-symbols-outlined">check_circle</span> -->
+                    </button>
+                    <!-- edit -->
+                    <button type="button" class="book-option edit">
+                        <span class="material-symbols-outlined">edit_note</span>
+                    </button>
+                    <!-- delete -->
+                    <button type="button" class="book-option delete">
+                        <span class="material-symbols-outlined">delete</span>
+                    </button>
+                </div>
+                <!-- Title -->
+                <!-- Author -->
+                <!-- Pages -->
+                <span class="book-details"><span class="bd-detail">Title:</span> The Power of Habit</span>
+                <span class="book-details"><span class="bd-detail">Author:</span> Charles Duhigg</span>
+                <span class="book-details"><span class="bd-detail">Pages:</span> 416</span>
+            </div>
+            <div class="book">
+                <div class="book-options">
+                    <!-- read status -->
+                    <button type="button" class="book-option not-read">
+                        <span class="material-symbols-outlined">radio_button_unchecked</span>
+                        <!-- <span class="material-symbols-outlined">check_circle</span> -->
+                    </button>
+                    <!-- edit -->
+                    <button type="button" class="book-option edit">
+                        <span class="material-symbols-outlined">edit_note</span>
+                    </button>
+                    <!-- delete -->
+                    <button type="button" class="book-option delete">
+                        <span class="material-symbols-outlined">delete</span>
+                    </button>
+                </div>
+                <!-- Title -->
+                <!-- Author -->
+                <!-- Pages -->
+                <span class="book-details"><span class="bd-detail">Title:</span> The Power of Habit</span>
+                <span class="book-details"><span class="bd-detail">Author:</span> Charles Duhigg</span>
+                <span class="book-details"><span class="bd-detail">Pages:</span> 416</span>
+            </div>
+            <div class="book">
+                <div class="book-options">
+                    <!-- read status -->
+                    <button type="button" class="book-option not-read">
+                        <span class="material-symbols-outlined">radio_button_unchecked</span>
+                        <!-- <span class="material-symbols-outlined">check_circle</span> -->
+                    </button>
+                    <!-- edit -->
+                    <button type="button" class="book-option edit">
+                        <span class="material-symbols-outlined">edit_note</span>
+                    </button>
+                    <!-- delete -->
+                    <button type="button" class="book-option delete">
+                        <span class="material-symbols-outlined">delete</span>
+                    </button>
+                </div>
+                <!-- Title -->
+                <!-- Author -->
+                <!-- Pages -->
+                <span class="book-details"><span class="bd-detail">Title:</span> The Power of Habit</span>
+                <span class="book-details"><span class="bd-detail">Author:</span> Charles Duhigg</span>
+                <span class="book-details"><span class="bd-detail">Pages:</span> 416</span>
+            </div>
+        </div>
+    </main>
     <div class="overlay">
         <form action="" method="post" id="book-form">
             <button type='button' class="close-form">
                 <span class="material-symbols-outlined">close</span>
             </button>
             <!-- Book Title -->
-            <label for="title">Title:</label>
+            <label for="title" class="label">Title:</label>
             <input id="title" type="text" name="title" required>
-            <span class="author-name">Author:</span>
+            <span class="author-name label">Author:</span>
             <div class="author">
                 <!-- Author: First Name -->
-                <label for="first-name">First Name:</label>
+                <label for="first-name">First Name</label>
                 <input type="text" name="first-name" id="first-name" required>
                 <!-- Author: Last Name -->
-                <label for="last-name">Last Name:</label>
+                <label for="last-name">Last Name</label>
                 <input type="text" name="last-name" id="last-name" required>
             </div>
             <!-- Pages -->
-            <label for="pages">Pages:</label>
+            <label for="pages" class="label">Pages:</label>
             <input type="number" id="pages" name="pages" min="0" required>
             <!-- Read? -->
             <span class="prompt">Have you read this book?</span>

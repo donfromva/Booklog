@@ -55,13 +55,14 @@ header {
 #book-form {
     display: none;
     flex-direction: column;
-    width: clamp(300px, 50%, 500px);
+    /* width: clamp(300px, 50%, 500px); */
+    max-width: 400px;
     margin: auto;
     gap: 0.8rem;
     border-radius: 4px;
     padding: 1.5rem;
     z-index: 10;
-    margin-top: 100px;
+    margin-top: 70px;
     background-color: #fff;
     position: relative;
     /* have a margin kick in on smaller widths */
@@ -127,7 +128,7 @@ header {
 
 /* MAIN SECTION */
 main {
-    width: 1000px;
+    max-width: 1000px;
     min-height: 100%;
     margin: auto;
     padding: 2rem;
@@ -158,28 +159,9 @@ main {
     font-size: 1.1rem;
 }
 
-/* 
-   display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    border: 2px solid black;
-    padding: 1rem;
-    padding-top: 50px;
-    position: relative;
-*/
-
-/*
-    background: rgb(34, 34, 34);
-    color: white;
-    padding: 1rem;
-    border-radius: 0.625rem;
-    border-left: 6px solid #ddd;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-*/
+.bd-title {
+    font-size: 1.3rem;
+}
 
 .book-options {
     position: absolute;
@@ -192,6 +174,10 @@ main {
 .book-option {
     display: flex;
     align-items: center;
+}
+
+.read-unread {
+    
 }
 
 .edit:hover {

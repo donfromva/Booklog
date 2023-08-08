@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <script src="./index.js" defer></script>
+    <script src="./index.js" type="module" defer></script>
     <title>Library</title>
 </head>
 <body>
@@ -16,14 +16,15 @@
         <button type="button" class="add-book-btn">New book</button>
     </header>
     <main>
-        <h2>Books</h1>
+        <h2>Your collection</h1>
         <hr>
         <div class="book-collection">
             <!-- Book -->
+
             <div class="book">
                 <div class="book-options">
                     <!-- read status -->
-                    <button type="button" class="book-option not-read">
+                    <button type="button" class="book-option read-unread">
                         <span class="material-symbols-outlined">radio_button_unchecked</span>
                         <!-- <span class="material-symbols-outlined">check_circle</span> -->
                     </button>
@@ -39,9 +40,18 @@
                 <!-- Title -->
                 <!-- Author -->
                 <!-- Pages -->
-                <span class="book-details"><span class="bd-detail">Title:</span> The Power of Habit</span>
-                <span class="book-details"><span class="bd-detail">Author:</span> Charles Duhigg</span>
-                <span class="book-details"><span class="bd-detail">Pages:</span> 416</span>
+                <span class="book-details bd-title">
+                    "<em>The Power of Habit</em> "
+                </span>
+                <span class="book-details">
+                    <span class="bd-detail">Author:</span> Charles Duhigg
+                </span>
+                <span class="book-details">
+                    <span class="bd-detail">Genre:</span> Self-help
+                </span>
+                <span class="book-details">
+                    <span class="bd-detail">Pages:</span> 325
+                </span>
             </div>
             <div class="book">
                 <div class="book-options">
@@ -62,9 +72,10 @@
                 <!-- Title -->
                 <!-- Author -->
                 <!-- Pages -->
-                <span class="book-details"><span class="bd-detail">Title:</span> The Power of Habit</span>
+                <span class="book-details bd-title">"<em>The Power of Habit</em> "</span>
                 <span class="book-details"><span class="bd-detail">Author:</span> Charles Duhigg</span>
-                <span class="book-details"><span class="bd-detail">Pages:</span> 416</span>
+                <span class="book-details"><span class="bd-detail">Genre:</span> Self-help</span>
+                <span class="book-details"><span class="bd-detail">Pages:</span> 325</span>
             </div>
             <div class="book">
                 <div class="book-options">
@@ -85,20 +96,24 @@
                 <!-- Title -->
                 <!-- Author -->
                 <!-- Pages -->
-                <span class="book-details"><span class="bd-detail">Title:</span> The Power of Habit</span>
+                <span class="book-details bd-title">"<em>The Power of Habit</em> "</span>
                 <span class="book-details"><span class="bd-detail">Author:</span> Charles Duhigg</span>
-                <span class="book-details"><span class="bd-detail">Pages:</span> 416</span>
+                <span class="book-details"><span class="bd-detail">Genre:</span> Self-help</span>
+                <span class="book-details"><span class="bd-detail">Pages:</span> 325</span>
             </div>
+
         </div>
     </main>
     <div class="overlay">
-        <form action="" method="post" id="book-form">
+        <!-- relying on javascript for form submission so the action and method attr were removed -->
+        <form id="book-form">
             <button type='button' class="close-form">
                 <span class="material-symbols-outlined">close</span>
             </button>
             <!-- Book Title -->
             <label for="title" class="label">Title:</label>
             <input id="title" type="text" name="title" required>
+            <!-- Author -->
             <span class="author-name label">Author:</span>
             <div class="author">
                 <!-- Author: First Name -->
@@ -108,6 +123,9 @@
                 <label for="last-name">Last Name</label>
                 <input type="text" name="last-name" id="last-name" required>
             </div>
+            <!-- Genre -->
+            <label for="genre" class="label">Genre:</label>
+            <input id="genre" type="text" name="genre" required>
             <!-- Pages -->
             <label for="pages" class="label">Pages:</label>
             <input type="number" id="pages" name="pages" min="0" required>
@@ -116,11 +134,11 @@
             <div class="radio-group">
                 <div class="true">
                     <label for="true">Yes</label>
-                    <input type="radio" name="read-status" id="true" required>
+                    <input type="radio" name="read-status" value="true" id="true" required>
                 </div>
                 <div class="false">
                     <label for="false">No</label>
-                    <input type="radio" name="read-status" id="false" required>
+                    <input type="radio" name="read-status" value="false" id="false" required>
                 </div>
             </div>
             <!-- Submit -->

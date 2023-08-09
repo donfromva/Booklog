@@ -1,11 +1,27 @@
-import bookRenderer from "./js/book.js"
+import bookRenderer from "./js/bookCreator.js"
+import Book from "./js/bookConstructor.js"
+
 const openFormBtn = document.querySelector('.add-book-btn')
 const closeFormBtn = document.querySelector('.close-form')
 const overlay = document.querySelector('.overlay')
 const bookForm = document.querySelector('#book-form')
 const bookCollection = document.querySelector('.book-collection')
+const showOnEmpty = document.querySelector('.bc-empty')
+
+// ON LOAD
+// array of book objects
+let library = JSON.parse(localStorage.getItem('books'))
+
+// render books in user LS to page
+if (library) {
+    renderLibrary(library)
+
+}
+
+displayTextOnEmpty(library)
 
 // FORM CONTROLS
+// open form
 openFormBtn.addEventListener('click', () => {
     if (bookForm.classList.value === 'open') {
         bookForm.style.cssText = 'display: none'
@@ -19,6 +35,7 @@ openFormBtn.addEventListener('click', () => {
     }
 })
 
+// close form
 closeFormBtn.addEventListener('click', () => {
     if (bookForm.classList.value === 'open') {
         bookForm.style.cssText = 'display: none'
@@ -28,26 +45,20 @@ closeFormBtn.addEventListener('click', () => {
     }
 })
 
-let library = []
 
-function Book(title, first_name, last_name, genre, pages, read) {
-    this.title = title,
-    this.first_name = first_name,
-    this.last_name = last_name,
-    this.genre = genre,
-    this.pages = pages,
-    this.read = read,
-    this.id = crypto.randomUUID(),
-    this.author_full_name = `${this.first_name} ${this.last_name}`
-}
+// FORM DATA
+bookForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    
+    const formData = new FormData(bookForm)
+    const formDataArr = [...formData]
+    addBookToLibrary(formDataArr)
+    closeFormBtn.click()
+    bookForm.reset()
+})
 
-Book.prototype = {
-    info() {
-        const info = `${this.title} by ${`${this.first_name} ${this.last_name}`}, ${this.pages} pages, ${this.read === 'true' ? 'read' : 'not read yet'}`
-        return info
-    }
-}
 
+// FUNCTIONS
 function addBookToLibrary(book_data_arr) {
     // create a new book from form input
     let book = new Book(
@@ -60,21 +71,36 @@ function addBookToLibrary(book_data_arr) {
     
     // render book to the page
     bookCollection.appendChild(bookRenderer(book))
-    // append the new book to the library arr and append the entire library to LS
-    library = [...library, {...book}]
+    
+    // add new book to the library array
+    library = library === null ? [book] : [...library, book]
+    displayTextOnEmpty(library)
+    // add the modified library to user LS
     localStorage.setItem('books', JSON.stringify(library))
 }
 
-// FORM DATA
+function renderLibrary(library) {
+    library.forEach(book => {
+        bookCollection.appendChild(bookRenderer(book))
+    })
+} 
 
-// when the user submits a new book
-bookForm.addEventListener('submit', (e) => {
-    e.preventDefault()
-    const formData = new FormData(bookForm)
-    const formDataArr = [...formData]
-    // console.log(formDataArr)
-    addBookToLibrary(formDataArr)
+function displayTextOnEmpty(library) {
+    library !== null && library.length > 0 ? showOnEmpty.style.display = 'none' : showOnEmpty.style.display = 'block'
+}
 
-    closeFormBtn.click()
-    bookForm.reset()
-})
+// BOOK OPTION BUTTONS
+function updateReadStatus(id, bool) {
+    const bookIndex = library.findIndex(obj => obj.id === id)
+    library[bookIndex].read = `${bool}`
+    localStorage.setItem('books', JSON.stringify(library))
+}
+
+function updateAfterDelete(id) {
+    const bookIndex = library.findIndex(obj => obj.id === id)
+    library = [...library.slice(0, bookIndex), ...library.slice(bookIndex + 1)]
+    localStorage.setItem('books', JSON.stringify(library))
+    displayTextOnEmpty(library)
+}
+
+export {updateReadStatus, updateAfterDelete}

@@ -1,3 +1,5 @@
+import { changeReadStatus, removeBook } from "./handlerFunctions.js"
+
 // will be using form data
 const bookRenderer = (book) => {
     // BOOK
@@ -17,26 +19,33 @@ const bookRenderer = (book) => {
     readUnreadSpan.setAttribute('class', 'material-symbols-outlined')
     readUnreadSpan.textContent = 'radio_button_unchecked'
     readUnreadBtn.appendChild(readUnreadSpan)
+    readUnreadBtn.addEventListener('click', changeReadStatus)
 
     // EDIT BTN
     const editBtn = document.createElement('button')
     editBtn.setAttribute('type', 'button')
+    editBtn.setAttribute('title', 'edit')
     editBtn.setAttribute('class', 'book-option')
     editBtn.classList.add('edit')
     const editSpan = document.createElement('span')
     editSpan.setAttribute('class', 'material-symbols-outlined')
     editSpan.textContent = 'edit_note'
     editBtn.appendChild(editSpan)
+    editBtn.addEventListener('click', () => {
+        console.log('edit button')
+    })
 
     // DELETE BTN
     const deleteBtn = document.createElement('button')
     deleteBtn.setAttribute('type', 'button')
+    deleteBtn.setAttribute('title', 'delete')
     deleteBtn.setAttribute('class', 'book-option')
     deleteBtn.classList.add('delete')
     const deleteSpan = document.createElement('span')
     deleteSpan.setAttribute('class', 'material-symbols-outlined')
     deleteSpan.textContent = 'delete'
     deleteBtn.appendChild(deleteSpan)
+    deleteBtn.addEventListener('click', removeBook)
 
     // BOOK DETAILS
 
@@ -81,12 +90,16 @@ const bookRenderer = (book) => {
     bookDiv.appendChild(pagesSpan)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // fill in read status, title, author, genre, and pages
+  
+// fill in read status, title, author, genre, and pages
     if (book.read === 'true') {
         readUnreadSpan.textContent = 'check_circle'
+        readUnreadBtn.setAttribute('title', 'read')
+        readUnreadBtn.classList.add('read')
     } else {
         readUnreadSpan.textContent = 'radio_button_unchecked'
     }
+    bookDiv.classList.add(book.id)
     titleSpan.textContent = book.title
     authorTextSpan.after(book.author_full_name)
     genreTextSpan.after(book.genre)

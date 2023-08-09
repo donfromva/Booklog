@@ -11,99 +11,6 @@
 </head>
 <body>
     <!-- Library using local storage -->
-    <header>
-        <h1>Library</h1>
-        <button type="button" class="add-book-btn">New book</button>
-    </header>
-    <main>
-        <h2>Your collection</h1>
-        <hr>
-        <div class="book-collection">
-            <!-- Book -->
-
-            <div class="book">
-                <div class="book-options">
-                    <!-- read status -->
-                    <button type="button" class="book-option read-unread">
-                        <span class="material-symbols-outlined">radio_button_unchecked</span>
-                        <!-- <span class="material-symbols-outlined">check_circle</span> -->
-                    </button>
-                    <!-- edit -->
-                    <button type="button" class="book-option edit">
-                        <span class="material-symbols-outlined">edit_note</span>
-                    </button>
-                    <!-- delete -->
-                    <button type="button" class="book-option delete">
-                        <span class="material-symbols-outlined">delete</span>
-                    </button>
-                </div>
-                <!-- Title -->
-                <!-- Author -->
-                <!-- Pages -->
-                <span class="book-details bd-title">
-                    "<em>The Power of Habit</em> "
-                </span>
-                <span class="book-details">
-                    <span class="bd-detail">Author:</span> Charles Duhigg
-                </span>
-                <span class="book-details">
-                    <span class="bd-detail">Genre:</span> Self-help
-                </span>
-                <span class="book-details">
-                    <span class="bd-detail">Pages:</span> 325
-                </span>
-            </div>
-            <div class="book">
-                <div class="book-options">
-                    <!-- read status -->
-                    <button type="button" class="book-option not-read">
-                        <span class="material-symbols-outlined">radio_button_unchecked</span>
-                        <!-- <span class="material-symbols-outlined">check_circle</span> -->
-                    </button>
-                    <!-- edit -->
-                    <button type="button" class="book-option edit">
-                        <span class="material-symbols-outlined">edit_note</span>
-                    </button>
-                    <!-- delete -->
-                    <button type="button" class="book-option delete">
-                        <span class="material-symbols-outlined">delete</span>
-                    </button>
-                </div>
-                <!-- Title -->
-                <!-- Author -->
-                <!-- Pages -->
-                <span class="book-details bd-title">"<em>The Power of Habit</em> "</span>
-                <span class="book-details"><span class="bd-detail">Author:</span> Charles Duhigg</span>
-                <span class="book-details"><span class="bd-detail">Genre:</span> Self-help</span>
-                <span class="book-details"><span class="bd-detail">Pages:</span> 325</span>
-            </div>
-            <div class="book">
-                <div class="book-options">
-                    <!-- read status -->
-                    <button type="button" class="book-option not-read">
-                        <span class="material-symbols-outlined">radio_button_unchecked</span>
-                        <!-- <span class="material-symbols-outlined">check_circle</span> -->
-                    </button>
-                    <!-- edit -->
-                    <button type="button" class="book-option edit">
-                        <span class="material-symbols-outlined">edit_note</span>
-                    </button>
-                    <!-- delete -->
-                    <button type="button" class="book-option delete">
-                        <span class="material-symbols-outlined">delete</span>
-                    </button>
-                </div>
-                <!-- Title -->
-                <!-- Author -->
-                <!-- Pages -->
-                <span class="book-details bd-title">"<em>The Power of Habit</em> "</span>
-                <span class="book-details"><span class="bd-detail">Author:</span> Charles Duhigg</span>
-                <span class="book-details"><span class="bd-detail">Genre:</span> Self-help</span>
-                <span class="book-details"><span class="bd-detail">Pages:</span> 325</span>
-            </div>
-
-        </div>
-    </main>
     <div class="overlay">
         <!-- relying on javascript for form submission so the action and method attr were removed -->
         <form id="book-form">
@@ -128,7 +35,7 @@
             <input id="genre" type="text" name="genre" required>
             <!-- Pages -->
             <label for="pages" class="label">Pages:</label>
-            <input type="number" id="pages" name="pages" min="0" required>
+            <input type="number" id="pages" name="pages" min="0" max="10000" required>
             <!-- Read? -->
             <span class="prompt">Have you read this book?</span>
             <div class="radio-group">
@@ -146,5 +53,20 @@
         </form>
     </div>
 
+    <header>
+        <h1>Booklog</h1>
+        <button type="button" class="add-book-btn">New book</button>
+    </header>
+    <main>
+        <h2>Your collection</h1>
+        <hr>
+        <div class="book-collection">
+            <!-- Book -->
+            <p class="bc-empty">Your collection is currently empty.</p>
+        </div>
+    </main>
+    <footer>
+        
+    </footer>
 </body>
 </html>

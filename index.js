@@ -10,20 +10,15 @@ const bookForm = document.querySelector('#book-form')
 const bookCollection = document.querySelector('.book-collection')
 const showOnEmpty = document.querySelector('.bc-empty')
 
-// ON LOAD
-// array of book objects
 let library = JSON.parse(localStorage.getItem('books'))
 
-// render books in user LS to page
 if (library) {
     renderLibrary(library)
-
 }
 
 displayTextOnEmpty(library)
 
 // FORM CONTROLS
-// open form
 const openFormHandler = () => {
     bookForm.classList.add('open')
     overlay.classList.add('form-bg')
@@ -42,7 +37,6 @@ const addPaddingHandler = () => {
 
 mobileOpenFormBtn.addEventListener('click', addPaddingHandler)
 
-// close form
 closeFormBtn.addEventListener('click', () => {
         bookForm.style.cssText = 'display: none'
         bookForm.classList.remove('open')
@@ -72,22 +66,18 @@ submitBtn.addEventListener('click', () => {
 
 // FUNCTIONS
 function addBookToLibrary(book_data_arr) {
-    // create a new book from form input
     let book = new Book(
-        book_data_arr[0][1], // t
-        book_data_arr[1][1], // fn
-        book_data_arr[2][1], // ln
-        book_data_arr[3][1], // g
-        book_data_arr[4][1], // p
-        book_data_arr[5][1]) // rs
+        book_data_arr[0][1],
+        book_data_arr[1][1],
+        book_data_arr[2][1],
+        book_data_arr[3][1],
+        book_data_arr[4][1],
+        book_data_arr[5][1])
     
-    // render book to the page
     bookCollection.appendChild(bookRenderer(book))
     
-    // add new book to the library array
     library = library === null ? [book] : [...library, book]
     displayTextOnEmpty(library)
-    // add the modified library to user LS
     setLocalStorage(library)
 }
 
@@ -119,7 +109,6 @@ function updateAfterEdit(edited_book, id) {
     const bookIndex = library.findIndex(obj => obj.id === id)
     library[bookIndex] = edited_book
     setLocalStorage(library)
-
 }
 
 function setLocalStorage(library) {

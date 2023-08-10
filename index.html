@@ -11,7 +11,6 @@
     <title>Book Logger</title>
 </head>
 <body>
-    <!-- Library using local storage -->
     <header>
         <h1 class="logo">Booklog</h1>
         <button type="button" class="add-book-btn">New book</button>
@@ -25,7 +24,6 @@
         </div>
         <hr>
         <div class="book-collection">
-            <!-- Book -->
             <p class="bc-empty">Your collection is currently empty.</p>
         </div>
     </main>
@@ -34,31 +32,23 @@
         <a href="https://github.com/ebd11"><img class="github-img" src="./images/github-mark-white.svg" alt="github logo"></a>
     </footer>
     <div class="overlay">
-        <!-- relying on javascript for form submission so the action and method attr were removed -->
         <form id="book-form">
             <button type='button' class="close-form">
                 <span class="material-symbols-outlined">close</span>
             </button>
-            <!-- Book Title -->
             <label for="title" class="label">Title:</label>
             <input id="title" type="text" name="title" required>
-            <!-- Author -->
             <span class="author-name label">Author:</span>
             <div class="author">
-                <!-- Author: First Name -->
                 <label for="first-name">First Name</label>
                 <input type="text" name="first-name" id="first-name" required>
-                <!-- Author: Last Name -->
                 <label for="last-name">Last Name</label>
                 <input type="text" name="last-name" id="last-name" required>
             </div>
-            <!-- Genre -->
             <label for="genre" class="label">Genre:</label>
             <input id="genre" type="text" name="genre" required>
-            <!-- Pages -->
             <label for="pages" class="label">Pages:</label>
             <input type="number" id="pages" name="pages" min="0" max="10000" required>
-            <!-- Read? -->
             <span class="prompt">Have you read this book?</span>
             <div class="radio-group">
                 <div class="true">
@@ -70,7 +60,6 @@
                     <input type="radio" name="read-status" value="false" id="false" required>
                 </div>
             </div>
-            <!-- Submit -->
             <button type="submit" class="book-submit-btn">Add</button>
             <button type="submit" class="edit-save-btn">Save</button>
         </form>

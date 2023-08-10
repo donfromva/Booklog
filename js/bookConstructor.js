@@ -9,11 +9,4 @@ function Book(title, first_name, last_name, genre, pages, read, id) {
     this.author_full_name = `${this.first_name} ${this.last_name}`
 }
 
-Book.prototype = {
-    info() {
-        const info = `${this.title} by ${`${this.author_full_name}`}, ${this.pages} pages, ${this.read === 'true' ? 'read' : 'not read yet'}`
-        return info
-    }
-}
-
 export default Book

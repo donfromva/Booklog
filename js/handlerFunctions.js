@@ -36,20 +36,16 @@ const falseInput = document.getElementById('false')
 const submitBtn = document.querySelector('.book-submit-btn')
 const saveBtn = document.querySelector('.edit-save-btn')
 
-// TASK: edit the book's UI contents
 let bookId;
 
 const editBook  = (e) => {
-    // open the book form and prefill the fields with the unique book info
     bookId = e.target.parentElement.parentElement.classList[1]
     const book = e.target.parentElement.parentElement
 
-    // open the book form and switch out the buttons
     openFormBtn.click()
     submitBtn.style.display = 'none'
     saveBtn.style.display = 'block'
 
-    // retrieve the clicked book's details
     const bookChildren = book.children
     let readStatus = bookChildren[0].firstChild.classList.contains('read')
     const titleSpan = bookChildren[1]
@@ -57,7 +53,6 @@ const editBook  = (e) => {
     const genreSpanText = bookChildren[3].childNodes[1]
     const pagesSpanText = bookChildren[4].childNodes[1]
 
-    // fill the input fields with the book's details
     titleInput.value = titleSpan.textContent
     firstNameInput.value = authorSpanTextArr[0]
     lastNameInput.value = authorSpanTextArr[1]
@@ -70,7 +65,6 @@ const editBook  = (e) => {
     }
 }
 
-// loop through the book collection and find the book that has a matching id
 let books 
 
 const handleSave = (e) => {
@@ -81,7 +75,6 @@ const handleSave = (e) => {
     const formData =  new FormData(bookForm)
     const formDataArr = [...formData]
 
-    // data after save
     const title = formDataArr[0][1]
     const first_name = formDataArr[1][1]
     const last_name = formDataArr[2][1]
@@ -98,7 +91,6 @@ const handleSave = (e) => {
             const genreSpanText = bookChildren[3].childNodes[1]
             const pagesSpanText = bookChildren[4].childNodes[1]
 
-            // if no changes were made and the save button was pressed
             if (title === titleSpan &&
                 first_name === authorSpanTextArr[0] &&
                 last_name === authorSpanTextArr[1] &&
@@ -108,7 +100,6 @@ const handleSave = (e) => {
                     closeFormBtn.click()
                 }
             
-            // render changes to UI
             titleSpan.textContent = title
             authorSpanText.textContent = `${first_name} ${last_name}`
             genreSpanText.textContent = genre

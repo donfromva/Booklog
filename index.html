@@ -11,6 +11,21 @@
 </head>
 <body>
     <!-- Library using local storage -->
+    <header>
+        <h1>Booklog</h1>
+        <button type="button" class="add-book-btn">New book</button>
+    </header>
+    <main>
+        <h2>Your collection</h1>
+        <hr>
+        <div class="book-collection">
+            <!-- Book -->
+            <p class="bc-empty">Your collection is currently empty.</p>
+        </div>
+    </main>
+    <footer>
+        
+    </footer>
     <div class="overlay">
         <!-- relying on javascript for form submission so the action and method attr were removed -->
         <form id="book-form">
@@ -50,23 +65,8 @@
             </div>
             <!-- Submit -->
             <button type="submit" class="book-submit-btn">Add</button>
+            <button type="submit" class="edit-save-btn">Save</button>
         </form>
     </div>
-
-    <header>
-        <h1>Booklog</h1>
-        <button type="button" class="add-book-btn">New book</button>
-    </header>
-    <main>
-        <h2>Your collection</h1>
-        <hr>
-        <div class="book-collection">
-            <!-- Book -->
-            <p class="bc-empty">Your collection is currently empty.</p>
-        </div>
-    </main>
-    <footer>
-        
-    </footer>
 </body>
 </html>

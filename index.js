@@ -1,5 +1,6 @@
 import bookRenderer from "./js/bookCreator.js"
 import Book from "./js/bookConstructor.js"
+import { submitBtn, saveBtn } from "./js/handlerFunctions.js"
 
 const openFormBtn = document.querySelector('.add-book-btn')
 const closeFormBtn = document.querySelector('.close-form')
@@ -23,40 +24,38 @@ displayTextOnEmpty(library)
 // FORM CONTROLS
 // open form
 openFormBtn.addEventListener('click', () => {
-    if (bookForm.classList.value === 'open') {
-        bookForm.style.cssText = 'display: none'
-        bookForm.classList.remove('open')
-        overlay.classList.remove('form-bg')
-    } else {
         bookForm.classList.add('open')
         overlay.classList.add('form-bg')
         bookForm.style.cssText = 'display: flex'
         document.body.classList.add('hide')
-    }
+        submitBtn.style.display = 'block'
+        saveBtn.style.display = 'none'
 })
 
 // close form
 closeFormBtn.addEventListener('click', () => {
-    if (bookForm.classList.value === 'open') {
         bookForm.style.cssText = 'display: none'
         bookForm.classList.remove('open')
         overlay.classList.remove('form-bg')
         document.body.removeAttribute('class')
-    }
+        bookForm.reset()
 })
 
 
 // FORM DATA
-bookForm.addEventListener('submit', (e) => {
+const handleSubmission = (e) => {
     e.preventDefault()
-    
     const formData = new FormData(bookForm)
     const formDataArr = [...formData]
     addBookToLibrary(formDataArr)
     closeFormBtn.click()
     bookForm.reset()
-})
+    bookForm.removeEventListener('submit', handleSubmission)
+}
 
+submitBtn.addEventListener('click', () => {
+    bookForm.addEventListener('submit', handleSubmission)
+})
 
 // FUNCTIONS
 function addBookToLibrary(book_data_arr) {
@@ -76,7 +75,7 @@ function addBookToLibrary(book_data_arr) {
     library = library === null ? [book] : [...library, book]
     displayTextOnEmpty(library)
     // add the modified library to user LS
-    localStorage.setItem('books', JSON.stringify(library))
+    setLocalStorage(library)
 }
 
 function renderLibrary(library) {
@@ -93,14 +92,25 @@ function displayTextOnEmpty(library) {
 function updateReadStatus(id, bool) {
     const bookIndex = library.findIndex(obj => obj.id === id)
     library[bookIndex].read = `${bool}`
-    localStorage.setItem('books', JSON.stringify(library))
+    setLocalStorage(library)
 }
 
 function updateAfterDelete(id) {
     const bookIndex = library.findIndex(obj => obj.id === id)
     library = [...library.slice(0, bookIndex), ...library.slice(bookIndex + 1)]
-    localStorage.setItem('books', JSON.stringify(library))
+    setLocalStorage(library)
     displayTextOnEmpty(library)
 }
 
-export {updateReadStatus, updateAfterDelete}
+function updateAfterEdit(edited_book, id) {
+    const bookIndex = library.findIndex(obj => obj.id === id)
+    library[bookIndex] = edited_book
+    setLocalStorage(library)
+
+}
+
+function setLocalStorage(library) {
+    localStorage.setItem('books', JSON.stringify(library))
+}
+
+export {updateReadStatus, updateAfterEdit, updateAfterDelete, handleSubmission, openFormBtn, closeFormBtn, bookForm}

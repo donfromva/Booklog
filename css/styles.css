@@ -111,6 +111,10 @@ header {
     gap: 4px;
 }
 
+#true:hover, #false:hover {
+    cursor: pointer;
+}
+
 .book-submit-btn {
     background-color: black;
     color: white;
@@ -120,7 +124,7 @@ header {
 
 /* body overlay when form is open */
 .form-bg {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -196,10 +200,6 @@ hr {
     color: white;
 }
 
-.read-unread {
-    
-}
-
 .read {
     background-color: green;
 }
@@ -211,6 +211,17 @@ hr {
 .edit:hover {
     background-color: rgb(0, 200, 255);
     color: white;
+}
+
+.edit-save-btn {
+    display: none;
+    background-color: green;
+    color: white;
+    height: 2rem;
+}
+
+.edit-save-btn:hover {
+    background-color: rgba(0, 128, 0, 0.5);
 }
 
 .delete {

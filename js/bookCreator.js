@@ -1,10 +1,11 @@
-import { changeReadStatus, removeBook } from "./handlerFunctions.js"
+import { changeReadStatus, editBook, removeBook } from "./handlerFunctions.js"
 
 // will be using form data
 const bookRenderer = (book) => {
     // BOOK
     const bookDiv = document.createElement('div')
     bookDiv.setAttribute('class', 'book')
+    bookDiv.setAttribute('id', 'book')
 
     // BUTTONS CONTAINER
     const bookOptionsDiv = document.createElement('div')
@@ -31,9 +32,7 @@ const bookRenderer = (book) => {
     editSpan.setAttribute('class', 'material-symbols-outlined')
     editSpan.textContent = 'edit_note'
     editBtn.appendChild(editSpan)
-    editBtn.addEventListener('click', () => {
-        console.log('edit button')
-    })
+    editBtn.addEventListener('click', editBook)
 
     // DELETE BTN
     const deleteBtn = document.createElement('button')

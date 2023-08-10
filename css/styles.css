@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 
-
 html, body {
     height: 100%;
 }
@@ -10,6 +9,10 @@ body {
     position: relative;
     box-sizing: border-box;
     scroll-behavior: smooth;
+
+    --light-theme-dark-gray: rgb(34, 34, 34);
+
+    color: var(--light-theme-dark-gray);
 }
 
 button {
@@ -20,13 +23,13 @@ button {
 }
 
 button:hover {
-    background-color: #cbcbcb;
     background-color: #565656;
 }
 
 input {
     outline: none;
-    border: 2px solid black;
+    border-bottom: 2px solid var(--light-theme-dark-gray);
+    border-radius: 6px;
     padding: 4px;
 }
 
@@ -48,7 +51,7 @@ header {
 .add-book-btn {
     height: 2rem;
     padding: 8px;
-    background-color: black;
+    background-color: var(--light-theme-dark-gray);
     color: white;
     box-shadow: rgba(100, 100, 111, 0.6) 0px 0px 20px 2px;
 }
@@ -57,7 +60,6 @@ header {
 #book-form {
     display: none;
     flex-direction: column;
-    /* width: clamp(300px, 50%, 500px); */
     max-width: 400px;
     margin: auto;
     gap: 0.8rem;
@@ -67,7 +69,6 @@ header {
     margin-top: 60px;
     background-color: #fff;
     position: relative;
-    /* have a margin kick in on smaller widths */
 }
 
 .hide {
@@ -82,7 +83,7 @@ header {
     width: 2rem;
     display: flex;
     align-items: center;
-    background-color: black;
+    background-color: var(--light-theme-dark-gray);
     color: white;
     position: absolute;
     right: 4px;
@@ -116,7 +117,7 @@ header {
 }
 
 .book-submit-btn {
-    background-color: black;
+    background-color: var(--light-theme-dark-gray);
     color: white;
     height: 2rem;
 }
@@ -132,6 +133,10 @@ header {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+.pt {
+    padding-top: 70px;
+}
+
 /* MAIN SECTION */
 main {
     max-width: 1000px;
@@ -141,8 +146,18 @@ main {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
 }
 
+.main-header {
+    margin: 0;
+}
+
+#add-book-main {
+    display: none;
+    align-items: center;
+    box-shadow: none;
+}
+
 hr {
-    border: 2px solid rgb(34, 34, 34);
+    border: 2px solid var(--light-theme-dark-gray);
 }
 
 .book-collection {
@@ -163,12 +178,12 @@ hr {
 .book {
     /* background-color: rgb(34, 34, 34); */
     background-color: #f0f0f0;
-    color: rgb(34, 34, 34);
+    color: var(--light-theme-dark-gray);
     padding: 1rem;
     padding-top: 64px;
     gap: 2rem;
     border-radius: 0.625rem;
-    border-left: 6px solid rgb(34, 34, 34);
+    border-left: 6px solid var(--light-theme-dark-gray);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -196,7 +211,7 @@ hr {
 .book-option {
     display: flex;
     align-items: center;
-    background-color: rgb(34, 34, 34);
+    background-color: var(--light-theme-dark-gray);
     color: white;
 }
 
@@ -235,4 +250,65 @@ hr {
 
 .bd-detail {
     font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    background-color: var(--light-theme-dark-gray);
+    color: white;
+}
+
+footer {
+    padding: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.github-img {
+    width: 25px;
+    height: 25px;
+}
+
+@media (max-width: 740px) {
+    .main-header {
+        text-align: center;
+    }
+}
+
+@media (max-width: 460px) {
+
+    header {
+        display: block;
+        padding: 8px;
+    }
+
+    .logo {
+        text-align: center;
+        margin: 0;
+    }
+
+    .add-book-btn {
+        display: none;
+    }
+
+    .main-header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 4px;
+    }
+
+    #add-book-main {
+        display: flex;
+        padding: 4px;
+    }
+
+    #book-form {
+        margin: auto 10px;
+    }
+
+    footer {
+    }
 }

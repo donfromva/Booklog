@@ -3,6 +3,7 @@ import Book from "./js/bookConstructor.js"
 import { submitBtn, saveBtn } from "./js/handlerFunctions.js"
 
 const openFormBtn = document.querySelector('.add-book-btn')
+const mobileOpenFormBtn = document.querySelector('#add-book-main')
 const closeFormBtn = document.querySelector('.close-form')
 const overlay = document.querySelector('.overlay')
 const bookForm = document.querySelector('#book-form')
@@ -23,14 +24,23 @@ displayTextOnEmpty(library)
 
 // FORM CONTROLS
 // open form
-openFormBtn.addEventListener('click', () => {
-        bookForm.classList.add('open')
-        overlay.classList.add('form-bg')
-        bookForm.style.cssText = 'display: flex'
-        document.body.classList.add('hide')
-        submitBtn.style.display = 'block'
-        saveBtn.style.display = 'none'
-})
+const openFormHandler = () => {
+    bookForm.classList.add('open')
+    overlay.classList.add('form-bg')
+    bookForm.style.cssText = 'display: flex'
+    document.body.classList.add('hide')
+    submitBtn.style.display = 'block'
+    saveBtn.style.display = 'none'
+}
+
+openFormBtn.addEventListener('click', openFormHandler)
+mobileOpenFormBtn.addEventListener('click', openFormHandler)
+
+const addPaddingHandler = () => {
+    overlay.classList.add('pt')
+}
+
+mobileOpenFormBtn.addEventListener('click', addPaddingHandler)
 
 // close form
 closeFormBtn.addEventListener('click', () => {
@@ -39,6 +49,9 @@ closeFormBtn.addEventListener('click', () => {
         overlay.classList.remove('form-bg')
         document.body.removeAttribute('class')
         bookForm.reset()
+        if (overlay.classList.contains('pt')) {
+            overlay.classList.remove('pt')
+        }
 })
 
 

@@ -6,25 +6,32 @@
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="icon" href="./images/icons8-book-16.png">
     <script src="./index.js" type="module" defer></script>
-    <title>Library</title>
+    <title>Book Logger</title>
 </head>
 <body>
     <!-- Library using local storage -->
     <header>
-        <h1>Booklog</h1>
+        <h1 class="logo">Booklog</h1>
         <button type="button" class="add-book-btn">New book</button>
     </header>
     <main>
-        <h2>Your collection</h1>
+        <div class="main-header-container">
+            <h2 class="main-header">Your collection</h1>
+            <button type="button" class="add-book-btn" id="add-book-main">
+                <span class="material-symbols-outlined">add</span>
+            </button>
+        </div>
         <hr>
         <div class="book-collection">
             <!-- Book -->
             <p class="bc-empty">Your collection is currently empty.</p>
         </div>
     </main>
-    <footer>
-        
+    <footer>    
+        <span>Developed by</span>
+        <a href="https://github.com/ebd11"><img class="github-img" src="./images/github-mark-white.svg" alt="github logo"></a>
     </footer>
     <div class="overlay">
         <!-- relying on javascript for form submission so the action and method attr were removed -->

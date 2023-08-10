@@ -134,7 +134,7 @@ header {
 }
 
 .pt {
-    padding-top: 70px;
+    padding-top: 50px;
 }
 
 /* MAIN SECTION */
@@ -307,8 +307,5 @@ footer {
 
     #book-form {
         margin: auto 10px;
-    }
-
-    footer {
     }
 }

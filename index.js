@@ -30,12 +30,11 @@ const openFormHandler = () => {
 
 const openMobileFormHandler = () => {
     bookForm.classList.add('open')
-    overlay.classList.add('form-bg')
+    overlay.classList.add('form-bg', 'pt')
     bookForm.style.cssText = 'display: flex'
     document.body.classList.add('hide')
     submitBtn.style.display = 'block'
     saveBtn.style.display = 'none'
-    overlay.classList.add('pt')
 }
 
 openFormBtn.addEventListener('click', openFormHandler)
@@ -119,4 +118,4 @@ function setLocalStorage(library) {
     localStorage.setItem('books', JSON.stringify(library))
 }
 
-export {updateReadStatus, updateAfterEdit, updateAfterDelete, handleSubmission, openFormBtn, closeFormBtn, bookForm}
+export {updateReadStatus, updateAfterEdit, updateAfterDelete, handleSubmission, openFormBtn, closeFormBtn, bookForm, overlay}

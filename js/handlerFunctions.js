@@ -1,4 +1,4 @@
-import { updateReadStatus, updateAfterEdit, updateAfterDelete, handleSubmission, openFormBtn, closeFormBtn, bookForm } from "../index.js"
+import { updateReadStatus, updateAfterEdit, updateAfterDelete, handleSubmission, openFormBtn, closeFormBtn, bookForm, overlay} from "../index.js"
 import Book from "./bookConstructor.js"
 
 const t = true
@@ -43,6 +43,9 @@ const editBook  = (e) => {
     const book = e.target.parentElement.parentElement
 
     openFormBtn.click()
+    if (screen.width <= 460) {
+        overlay.classList.add('pt')
+    }
     submitBtn.style.display = 'none'
     saveBtn.style.display = 'block'
 

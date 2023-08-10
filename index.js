@@ -28,14 +28,18 @@ const openFormHandler = () => {
     saveBtn.style.display = 'none'
 }
 
-openFormBtn.addEventListener('click', openFormHandler)
-mobileOpenFormBtn.addEventListener('click', openFormHandler)
-
-const addPaddingHandler = () => {
+const openMobileFormHandler = () => {
+    bookForm.classList.add('open')
+    overlay.classList.add('form-bg')
+    bookForm.style.cssText = 'display: flex'
+    document.body.classList.add('hide')
+    submitBtn.style.display = 'block'
+    saveBtn.style.display = 'none'
     overlay.classList.add('pt')
 }
 
-mobileOpenFormBtn.addEventListener('click', addPaddingHandler)
+openFormBtn.addEventListener('click', openFormHandler)
+mobileOpenFormBtn.addEventListener('click', openMobileFormHandler)
 
 closeFormBtn.addEventListener('click', () => {
         bookForm.style.cssText = 'display: none'
